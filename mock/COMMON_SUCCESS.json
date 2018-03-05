@@ -1,0 +1,10 @@
+{
+  "resultCode": "00",
+  "resultMsg": "JSON-操作成功",
+  "result": [
+    {
+      "http_type": "JSON",
+      "http_name": "成功"
+    }
+  ]
+}

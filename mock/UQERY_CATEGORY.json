@@ -1,0 +1,18 @@
+{
+  "resultCode": "00",
+  "resultMsg": "获取成功",
+  "result": [
+    {
+      "catalog_code": "2",
+      "catalog_name": "少儿"
+    },
+    {
+      "catalog_code": "3",
+      "catalog_name": "成人"
+    },
+    {
+      "catalog_code": "4",
+      "catalog_name": "父母"
+    }
+  ]
+}
