@@ -2,7 +2,7 @@
 	<div class="tem">
 		<div class="content native-scroll">
 			<header>
-				<div class="backimg"><img src="../../assets/images/IMG_0293.jpg"></div>
+				<div class="backimg"><img src="../../assets/images/bk.jpg"></div>
 				<div class="logo"><span></span><img src="../../assets/images/00002637.jpg"></div>
 			</header>
 

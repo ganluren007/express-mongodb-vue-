@@ -138,7 +138,8 @@ export default {
 						that.zc_tip = "注册成功，正在跳转登录页面————";
 						setTimeout(function() {
 							that.login_bol = true;
-							that.zz_bol = false;
+							that.zc_bol = false;
+							that.zc_tip ="";
 						}, 1000)
 
 					} else if(res.code == "01") {
@@ -175,7 +176,7 @@ export default {
 							that.tip_bol = true;
 							that.login_bol = false;
 							that.zc_bol = false;
-							
+							that.dl_tip=""
 						}, 2000)
 
 					} else {

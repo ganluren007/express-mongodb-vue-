@@ -32,26 +32,28 @@ npm run dev
 npm install
 # 在根目录中启动后端服务
 npm run dev
+
+#PS:如果需要进入后台管理系统对内容进行增删该查操作，，需要将用户信息的isadmin改为true，才有权限进入后台页面修改
 ```
 
 
 ```
 ## 后端server目录文件结构
 .                                   
-├── models                          ├──数据模型                                                          
-│   ├── Cate.js                     │   ├──	分类模型               	
-│   ├── content.js                  │   ├──	博客内容模型
-│   ├── user.js                 	│   ├── 用户资料模型
-├── public                          ├──静态资源
-│   ├── css               			│   ├── css
-│   ├── font              			│   ├──	字体文件
-│   ├── imgaes              		│   ├── 图片资源
-│   └── js              			│   └──	js
-├── router                          ├──路由及相关操作（后续可进行模块分割）
-│   ├── admin						│   ├──	后台管理页面路由及相应操作
-│   └── api              			│   └──	博客页面路由及相应操作
-├── uploads                         ├──用户上传图片
-├── app                   		    ├──入口文件	
+├── models                          数据模型                                                          
+│   ├── Cate.js                     分类模型               	
+│   ├── content.js                  博客内容模型
+│   ├── user.js                 	用户资料模型
+├── public                          静态资源
+│   ├── css               			css
+│   ├── font              			字体文件
+│   ├── imgaes              		图片资源
+│   └── js              			js
+├── router                          路由及相关操作（后续可进行模块分割）
+│   ├── admin						后台管理页面路由及相应操作
+│   └── api              			博客页面路由及相应操作
+├── uploads                         用户上传图片
+├── app                   		        入口文件	
 ├── packjson                       
 ├── ReadMe                         
 .
