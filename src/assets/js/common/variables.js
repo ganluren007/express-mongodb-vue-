@@ -53,4 +53,6 @@ export const CHANGECONTENT=HTTP_BASE_PATH+'/admin/changeContent'
 export const GETINDEXIFO=HTTP_BASE_PATH+'/api/index'
 
 export const FINDCATEIFO=HTTP_BASE_PATH+'/api/findCateContent'
+
+export const UPLOADIMG=HTTP_BASE_PATH+'/api/uploadUserImage'
 /****************请求路径配置 end*************************/

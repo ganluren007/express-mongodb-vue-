@@ -7,6 +7,7 @@ module.exports = new mongoose.Schema({
      isAdmin:{
      	type:Boolean,
      	default:false
-     }
+     },
+     img_url:{type:String}
      
 });

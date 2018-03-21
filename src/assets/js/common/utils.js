@@ -76,29 +76,40 @@ import jquery from '../lib/jquery-1.11.1.js';
 				"terminalType": "AJS_mobile"				
 			}, opt.headers);
 		}*/
-	
+//	    debugger
 		var userIfo=JSON.parse(localStorage.getItem("userIfo"))||{}
+		
+//		$.extend(true,settingOpt,opt);
 		var data = $.extend(true, {
             username: userIfo.username,
             token:userIfo.token
         }, opt.data);
-		$.ajax({
-			type: opt.type || "get",
-			timeout: 30000,
-			url: opt.url,
-			cache: opt.cache || false,
-			data: data,
+        var setting={
+            type: opt.type || "get",
+            timeout: 30000,
+            url: opt.url,
+            cache: opt.cache || false,
+            data: data,
+            success: function(data,status,xhr) {
+                $(".load_img").css("display", "none")
+                opt.sucesscallback(data,status,xhr);
 
-			success: function(data,status,xhr) {
-				$(".load_img").css("display", "none")
-				opt.sucesscallback(data,status,xhr);
+            },
+            error: function(xhr, type) {　
+                $(".load_img").css("display", "none")
+                alert("网络忙，请稍后再试");　　　
+            }
+        }
+        if(opt.upload){
+            $.extend(setting,{
+                contentType: false,
+                processData: false,
+                dataType: "json",
+//              mimeType: "multipart/form-data",
+            })
+        }
+		$.ajax(setting)
 
-			},
-			error: function(xhr, type) {　
-				$(".load_img").css("display", "none")
-				alert("网络忙，请稍后再试");　　　
-			}
-		})
 	}
 
 	utils.write_jd = function(J_circle) {

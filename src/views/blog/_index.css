@@ -169,12 +169,17 @@ nav .menu a {
   padding: 0px 20px;
   height: 56px;
   line-height: 56px;
-  text-decoration: none;
+  text-decoration: none;cursor: pointer;
 }
 nav .menu a:hover, nav .menu a.focus {
   margin-bottom: -2px;
   border-bottom: 2px solid #e67e22;
 }
+.active{
+	margin-bottom: -2px;
+  border-bottom: 2px solid #e67e22;
+}
+
 main {
   width: 1140px;
   margin: 35px auto 0px;
@@ -409,4 +414,17 @@ footer .fotBox span {
   line-height: 79px;
   border-top: 1px solid #303030;
   color: #555;
+}
+.tx{
+    width:100px;height: 100px;border-radius:50%;
+}
+.changeTx{
+    text-align:center;width:100px;
+}
+#imgInput{
+	opacity: 0;position: absolute;left:0;top: 0;z-index: 100;
+}
+.changeTx{
+	position: relative;width:80px;height: 35px;border-radius: 10px;background: #3A96FF;
+	margin:6px 0 0 10px;font-size: 16px;line-height: 35px;cursor: pointer;
 }

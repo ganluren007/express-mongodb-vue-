@@ -6,6 +6,7 @@ var User = require('../models/User.js')
 var Cate = require('../models/Cate.js')
 var Content = require('../models/Content.js')
 var utils = require("../js/common/utils.js")
+var upload = require('../js/common/multerUtil.js');
 
 // 1. 通过 express.Router() 得到一个 router 实例
 var router = express.Router()
@@ -67,7 +68,8 @@ router.post("/user/login", function(req, res, next) {
 					utils.dcsj("00", "登陆成功，正在跳转", res, responseData, {
 						isAdmin: doc.isAdmin,
 						token: doc._id,
-						username: doc.username
+						username: doc.username,
+						img_url:doc.img_url
 					})
 					next();
 				} else {
@@ -91,7 +93,6 @@ router.post("/user/yz_token", function(req, res, next) {
 		"_id": _id
 	}, function(err, doc) {
 		if(doc) {
-
 			utils.dcsj("00", "验证成功", res, responseData, doc)
 		} else {
 			utils.dcsj("02", "该用户不存在", res, responseData)
@@ -132,26 +133,38 @@ router.post("/index", function(req, res, next) {
 
 //点击查询分类的内容
 router.post("/findCateContent", function(req, res, next) {
-    var cateid=req.body._id;
-	
-			Content.find({
-				category: cateid
-			}).populate([{
-				path: 'users',
-				select: 'username _id'
-			}, {
-				path: 'category',
-				select: 'name _id'
-			}]).then(function(doc) {
+	var cateid = req.body._id;
 
-				utils.dcsj("00", "查询成功", res, responseData, {
-					"content": doc
-					
-				})
-			})
+	Content.find({
+		category: cateid
+	}).populate([{
+		path: 'users',
+		select: 'username _id'
+	}, {
+		path: 'category',
+		select: 'name _id'
+	}]).then(function(doc) {
+		utils.dcsj("00", "查询成功", res, responseData, {
+			"content": doc
+		})
+	})
 
-		
 })
+
+router.post('/uploadUserImage', upload.single('file'), function(req, res, next) {	
+	if(req.file) {
+		User.update({
+			_id: JSON.parse(req.body.mes).token
+		}, {
+			img_url: "http://localhost:3000/uploads/" + req.file.filename
+		}).then(function() {
+			utils.dcsj("00", "上传成功", res, responseData, {
+				"imgurl": "http://localhost:3000/uploads/" + req.file.filename
+			})
+		})
+
+	}
+});
 
 // 3. 把 router 暴露出去
 module.exports = router

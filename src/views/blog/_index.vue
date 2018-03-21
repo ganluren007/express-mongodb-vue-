@@ -12,8 +12,8 @@
 					<!--<a href="javascript:;" class="focus">首页</a>-->
 
 					<!--<a href="/">首页</a>-->
-                    
-					<a @click="getcatefile($event)" v-for="item in catIfo" :myid="item._id" >{{item.name}}</a>
+
+					<a @click="getcatefile($event)" v-for="(item, index) in catIfo" :myid="item._id" :index="index" :class="{'active':menu_index==index}">{{item.name}}</a>
 
 				</div>
 			</nav>
@@ -24,15 +24,15 @@
 					<div class="listBox" v-for="item in content">
 						<h1>{{item.title}}</h1>
 						<p class="colDefault">
-							作者：<span class="colInfo">{{item.users.username}}</span>  - 阅读：
+							作者：<span class="colInfo">{{item.users.username}}</span> - 阅读：
 							<span class="colInfo">{{item.views}}</span> - 评论：
 							<span class="colInfo">{{item.comments.length}}</span>
 						</p>
 						<dfn><p>{{item.content}}</p></dfn>
-						<div class="function">
-							<a href="">阅读全文</a>
-						</div>
+						
+
 					</div>
+					<router-view></router-view>
 				</div>
 
 				<div class="mainRight">
@@ -40,13 +40,26 @@
 					<div class="rightBox" id="userInfo" v-if="tip_bol">
 						<div class="title"><span>用户信息</span></div>
 						<p><span class="colDark"></span></p>
+						<div id="" class="clearfix">
+							<div class="fl">
+								<p>
+									<span class="colDanger">你好，<span>{{dl_mes.username}}</span></span>
+									<a v-if="isAdmin" @click="gzj('admin')" style="cursor:pointer">进入管理</a>
+								</p>
+								<!--<p><span class="colDanger">你好，欢迎光临我的博客！</span></p>-->
+								<p><span class="colDark"><a href="javascript:;" id="logout" @click="logout">退出</a></span></p>
+							</div>
+							<div class="fr tx_section">
+								<img :src="tx_url" class="tx" />
+								<!--<p>更换头像</p>-->
+								<p class="changeTx">更换头像
+								
+									<input type="file" value="更换头像" style="color: transparent;" @change="uploadImg" id="imgInput" name='file' />
 
-						<p>
-							<span class="colDanger">你好，<span>{{dl_mes.username}}</span></span>
-							<a  v-if="isAdmin" @click="gzj('admin')" style="cursor:pointer">进入管理</a>
-						</p>
-						<!--<p><span class="colDanger">你好，欢迎光临我的博客！</span></p>-->
-						<p><span class="colDark"><a href="javascript:;" id="logout" @click="logout">退出</a></span></p>
+								</p>
+							</div>
+						</div>
+
 					</div>
 
 					<div class="rightBox" id="loginBox" v-if="login_bol">
@@ -70,7 +83,6 @@
 						<p class="colWarning textCenter">{{zc_tip}}</p>
 					</div>
 
-					
 				</div>
 
 			</main>
