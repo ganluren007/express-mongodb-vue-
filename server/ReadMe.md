@@ -29,21 +29,20 @@ npm run dev
 
 ```
 .
-├── models                          数据模型
-│   ├── Cate.js                     	分类模型
-│   ├── category.js                 	餐馆分类
-│   ├── content.js                  	城市列表
-│   ├── user.js                 		配送方式
-├── public                         静态资源
-│   ├── css               				css
-│   ├── font              				字体文件
-│   ├── imgaes              		        图片资源
-│   └── js              				js
-├── router                         路由及相关操作（后续可进行模块分割）
-│   ├── admin							后台管理页面路由及相应操作
-│   └── api              				博客页面路由及相应操作
-├── uploads                        用户上传图片
-├── app                   		     入口文件	
+├── models                          ├──数据模型                                                          
+│   ├── Cate.js                     │   ├──	分类模型               	
+│   ├── content.js                  │   ├──	博客内容模型
+│   ├── user.js                 	│   ├── 用户资料模型
+├── public                          ├──静态资源
+│   ├── css               			│   ├── css
+│   ├── font              			│   ├──	字体文件
+│   ├── imgaes              		│   ├── 图片资源
+│   └── js              			│   └──	js
+├── router                          ├──路由及相关操作（后续可进行模块分割）
+│   ├── admin						│   ├──	后台管理页面路由及相应操作
+│   └── api              			│   └──	博客页面路由及相应操作
+├── uploads                         ├──用户上传图片
+├── app                   		    ├──入口文件	
 ├── packjson                       
 ├── ReadMe                         
 .
